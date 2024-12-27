@@ -1,7 +1,7 @@
 <?php
 // Database connection
 if ($_SERVER['HTTP_HOST'] === 'localhost') {
-    $db = mysqli_connect("localhost", "root", "", "siondb");
+    $db = mysqli_connect("localhost", "root", "", database: "templatedb");
 } else if ($_SERVER['HTTP_HOST'] === 'sion.cakra-portfolio.my.id') {
     $db = mysqli_connect("localhost", "u686303384_sion", "#sion12", "u686303384_siondb");
 }

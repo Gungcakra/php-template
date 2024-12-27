@@ -1,67 +1,78 @@
-      <div class="iq-sidebar  sidebar-default ">
-          <div class="iq-sidebar-logo d-flex align-items-center">
-              <a href="<?= BASE_URL_HTML ?>/backend/index.html" class="header-logo">
-                  <img src="<?= BASE_URL_HTML ?>/assets/images/logo.svg" alt="logo">
-                  <h3 class="logo-title light-logo">Webkit</h3>
-              </a>
-              <div class="iq-menu-bt-sidebar ml-0">
-                  <i class="las la-bars wrapper-menu"></i>
-              </div>
-          </div>
-          <div class="data-scrollbar" data-scroll="1">
-              <nav class="iq-sidebar-menu">
-                  <ul id="iq-sidebar-toggle" class="iq-menu">
-                      <li class="active">
-                          <a href="<?= BASE_URL_HTML ?>/system/" class="svg-icon">                        
-                              <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <?php
+    $menuItems = [
+        [
+            'title' => 'Dashboards',
+            'icon' => '<svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                   <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                              </svg>
-                              <span class="ml-4">Dashboards</span>
-                          </a>
-                      </li>
+                              </svg>',
+            'url' => BASE_URL_HTML . '/system/',
+            'active' => $_SERVER['REQUEST_URI'] == BASE_URL_HTML . '/system/',
+            'submenu' => []
+        ],
+        [
+            'title' => 'Data',
+            'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>',
+            'url' => '#',
+            'active' => false,
+            'submenu' => [
+                [
+                    'title' => 'User',
+                    'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>',
+                    'url' => BASE_URL_HTML . '/system/user/',
+                    'active' => $_SERVER['REQUEST_URI'] == BASE_URL_HTML . '/system/user/'
+                ],
+                [
+                    'title' => 'Cash Flow',
+                    'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>',
+                    'url' => BASE_URL_HTML . '/system/cashflow',
+                    'active' => $_SERVER['REQUEST_URI'] == BASE_URL_HTML . '/system/cashflow'
+                ]
+            ]
+        ]
+    ];
+    ?>
 
-                      <li class=" ">
-                          <a href="#otherpage" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                              <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                              </svg>
-                              <span class="ml-4">DATA</span>                        
-                              <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                              <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                          </a>
-                          <ul id="otherpage" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                          <li class="">
-                          <a href="<?= BASE_URL_HTML ?>/system/" class="svg-icon">                        
-                              <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                              </svg>
-                              <span class="ml-4">USER</span>
-                          </a>
-                      </li>  
-                          </ul>
-                      </li>
-                  </ul>
-              </nav>
-              <!-- <div id="sidebar-bottom" class="position-relative sidebar-bottom">
-                  <div class="card border-none mb-0 shadow-none">
-                      <div class="card-body p-0">
-                          <div class="sidebarbottom-content">
-                              <h5 class="mb-3">Task Performed</h5>
-                              <div id="circle-progress-6" class="sidebar-circle circle-progress circle-progress-primary mb-4" data-min-value="0" data-max-value="100" data-value="55" data-type="percent"></div>
-                              <div class="custom-control custom-radio mb-1">
-                                  <input type="radio" id="customRadio6" name="customRadio-1" class="custom-control-input" checked="">
-                                  <label class="custom-control-label" for="customRadio6">Performed task</label>
-                              </div>
-                              <div class="custom-control custom-radio">
-                                  <input type="radio" id="customRadio7" name="customRadio-1" class="custom-control-input">
-                                  <label class="custom-control-label" for="customRadio7">Incomplete Task</label>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="pt-5 pb-2"></div> -->
-          </div>
-      </div>    
+    <div class="iq-sidebar sidebar-default">
+        <div class="iq-sidebar-logo d-flex align-items-center">
+            <a href="<?= BASE_URL_HTML ?>/backend/index.html" class="header-logo">
+                <img src="<?= BASE_URL_HTML ?>/assets/images/logo.svg" alt="logo">
+                <h3 class="logo-title light-logo">TEMPLATE</h3>
+            </a>
+            <div class="iq-menu-bt-sidebar ml-0">
+                <i class="las la-bars wrapper-menu"></i>
+            </div>
+        </div>
+        <div class="data-scrollbar" data-scroll="1">
+            <nav class="iq-sidebar-menu">
+                <ul id="iq-sidebar-toggle" class="iq-menu">
+                    <?php foreach ($menuItems as $item): ?>
+                        <li class="<?= $item['active'] ? 'active' : '' ?>">
+                            <a href="<?= !empty($item['submenu']) ? '#' . strtolower(str_replace(' ', '-', $item['title'])) : $item['url'] ?>"
+                                class="svg-icon <?= !empty($item['submenu']) ? 'collapsed' : 'no-submenu' ?>"
+                                <?= !empty($item['submenu']) ? 'data-toggle="collapse" aria-expanded="false"' : '' ?>>
+                                <?= $item['icon'] ?>
+                                <span class="ml-4"><?= $item['title'] ?></span>
+                                <?php if (!empty($item['submenu'])): ?>
+                                    <i class="las la-angle-right iq-arrow-right arrow-active"></i>
+                                    <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
+                                <?php endif; ?>
+                            </a>
+                            <?php if (!empty($item['submenu'])): ?>
+                                <ul id="<?= strtolower(str_replace(' ', '-', $item['title'])) ?>" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                                    <?php foreach ($item['submenu'] as $submenu): ?>
+                                        <li class="<?= $submenu['active'] ? 'active' : '' ?>">
+                                            <a href="<?= $submenu['url'] ?>" class="svg-icon">
+                                                <?= $submenu['icon'] ?>
+                                                <span class="ml-4"><?= $submenu['title'] ?></span>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </nav>
+        </div>
+    </div>

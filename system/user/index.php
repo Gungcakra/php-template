@@ -1,130 +1,109 @@
 <?php
 session_start();
-require_once ".././library/konfigurasi.php";
-require_once "{$constant('BASE_URL_PHP')}/library/fungsiRupiah.php";
-require_once "{$constant('BASE_URL_PHP')}/library/fungsiTanggal.php";
+require_once "../../library/konfigurasi.php";
+
+//CEK USER
 checkUserSession($db);
 
-?>
 
+
+?>
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title><?= PAGE_TITLE ?></title>
-      
-      <!-- Favicon -->
-      <link rel="shortcut icon" href="<?= BASE_URL_HTML ?>/assets/images/favicon.ico" />
-      <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/css/backend-plugin.min.css">
-      <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/css/backend.css?v=1.0.0">
-      <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-      <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/remixicon/fonts/remixicon.css">
-      
-      <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css">
-      <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css">
-      <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css">  </head>
-  <body class="  ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?= PAGE_TITLE ?></title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<?= BASE_URL_HTML ?>/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/css/backend-plugin.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/css/backend.css?v=1.0.0">
+    <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/remixicon/fonts/remixicon.css">
+
+    <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css">
+    <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css">
+    <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css">
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+</head>
+
+<body class="  ">
     <!-- loader Start -->
     <div id="loading">
-          <div id="loading-center">
-          </div>
+        <div id="loading-center">
+        </div>
     </div>
     <!-- loader END -->
     <!-- Wrapper Start -->
     <div class="wrapper">
-      
-    <!-- SIDEBAR -->
-      <?php require_once "{$constant('BASE_URL_PHP')}/system/sidebar.php"; ?>
-      
-    <!-- NAVBAR -->
-      <?php require_once "{$constant('BASE_URL_PHP')}/system/navbar.php"; ?>
 
-      <div class="content-page">
-     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-block card-stretch card-height">
-                    <div class="card-body">
-                        <div class="top-block d-flex align-items-center justify-content-between">
-                            <h5>Investment</h5>
-                            <span class="badge badge-primary">Monthly</span>
-                        </div>
-                        <h3>$<span class="counter">35000</span></h3>
-                        <div class="d-flex align-items-center justify-content-between mt-1">
-                            <p class="mb-0">Total Revenue</p>
-                            <span class="text-primary">65%</span>
-                        </div>
-                        <div class="iq-progress-bar bg-primary-light mt-2">
-                            <span class="bg-primary iq-progress progress-1" data-percent="65"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-block card-stretch card-height">
-                    <div class="card-body">
-                        <div class="top-block d-flex align-items-center justify-content-between">
-                            <h5>Sales</h5>
-                            <span class="badge badge-warning">Anual</span>
-                        </div>
-                        <h3>$<span class="counter">25100</span></h3>
-                        <div class="d-flex align-items-center justify-content-between mt-1">
-                            <p class="mb-0">Total Revenue</p>
-                            <span class="text-warning">35%</span>
-                        </div>
-                        <div class="iq-progress-bar bg-warning-light mt-2">
-                            <span class="bg-warning iq-progress progress-1" data-percent="35"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-block card-stretch card-height">
-                    <div class="card-body">
-                        <div class="top-block d-flex align-items-center justify-content-between">
-                            <h5>Cost</h5>
-                            <span class="badge badge-success">Today</span>
-                        </div>
-                        <h3>$<span class="counter">33000</span></h3>
-                        <div class="d-flex align-items-center justify-content-between mt-1">
-                            <p class="mb-0">Total Revenue</p>
-                            <span class="text-success">85%</span>
-                        </div>
-                        <div class="iq-progress-bar bg-success-light mt-2">
-                            <span class="bg-success iq-progress progress-1" data-percent="85"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-block card-stretch card-height">
-                    <div class="card-body">
-                        <div class="top-block d-flex align-items-center justify-content-between">
-                            <h5>Profit</h5>
-                            <span class="badge badge-info">Weekly</span>
-                        </div>
-                        <h3>$<span class="counter">2500</span></h3>
-                        <div class="d-flex align-items-center justify-content-between mt-1">
-                            <p class="mb-0">Total Revenue</p>
-                            <span class="text-info">55%</span>
-                        </div>
-                        <div class="iq-progress-bar bg-info-light mt-2">
-                            <span class="bg-info iq-progress progress-1" data-percent="55"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Sidebar  -->
+        <?php require_once "{$constant('BASE_URL_PHP')}/system/sidebar.php" ?>
 
+        <!-- NAVBAR  -->
+        <?php require_once "{$constant('BASE_URL_PHP')}/system/navbar.php" ?>
+
+        <div class="content-page">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between">
+                                <div class="header-title">
+                                    <h4 class="card-title">User List</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <div class="row justify-content-between">
+                                        <div class="col-sm-6 col-md-6">
+                                            <div id="user_list_datatable_info" class="dataTables_filter">
+                                                <form class="mr-3 position-relative">
+                                                    <div class="form-group mb-0">
+                                                        <input type="text" class="form-control" id="searchQuery" placeholder="Search"
+                                                        name="searchQuery"
+                                                        autocomplete="off"
+                                                        onkeyup="cariDaftarUser()"
+                                                            aria-controls="user-list-table">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="user-list-files d-flex">
+                                                <!-- <button class="btn btn-primary mr-1" href="javascript:void();">
+                                                    Print
+                                                </button>
+                                                <button class="btn btn-primary mr-1" href="javascript:void();">
+                                                    Excel
+                                                </button> -->
+                                                <a class="btn btn-primary mr-1" href="./formUser.php">+ User</a>
+                                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="daftarUser" class="w-100">
+                                        
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between mt-3" id="pagination">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Page end  -->
-    </div>
-      </div>
     </div>
     <!-- Wrapper End-->
 
     <!-- Modal list start -->
-    <!-- <div class="modal fade" role="dialog" aria-modal="true" id="new-project-modal">
+    <div class="modal fade" role="dialog" aria-modal="true" id="new-project-modal">
         <div class="modal-dialog  modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header d-block text-center pb-3 border-bttom">
@@ -154,7 +133,7 @@ checkUserSession($db);
                             <div class="form-group mb-3">
                                 <label for="exampleInputText004" class="h5">Due Dates*</label>
                                 <input type="date" class="form-control" id="exampleInputText004" value="">
-                            </div>                        
+                            </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group mb-3">
@@ -172,7 +151,7 @@ checkUserSession($db);
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="new-task-modal">
         <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -203,7 +182,7 @@ checkUserSession($db);
                             <div class="form-group mb-3">
                                 <label for="exampleInputText05" class="h5">Due Dates*</label>
                                 <input type="date" class="form-control" id="exampleInputText05" value="">
-                            </div>                        
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group mb-3">
@@ -248,7 +227,7 @@ checkUserSession($db);
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="new-user-modal">
         <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -317,7 +296,7 @@ checkUserSession($db);
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="new-create-modal">
         <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -386,10 +365,15 @@ checkUserSession($db);
                 </div>
             </div>
         </div>
-    </div> -->
-    <?php require_once "{$constant('BASE_URL_PHP')}/system//footer.php"; ?>
+    </div>
+    
+    <?php require_once "{$constant('BASE_URL_PHP')}/system/footer.php" ?>
+
+    <!-- JQUERY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Backend Bundle JavaScript -->
     <script src="<?= BASE_URL_HTML ?>/assets/js/backend-bundle.min.js"></script>
+    
     
     <!-- Table Treeview JavaScript -->
     <script src="<?= BASE_URL_HTML ?>/assets/js/table-treeview.js"></script>
@@ -406,5 +390,12 @@ checkUserSession($db);
     <script src="<?= BASE_URL_HTML ?>/assets/js/app.js"></script>
     
     <script src="<?= BASE_URL_HTML ?>/assets/vendor/moment.min.js"></script>
-  </body>
+    <!-- MAIN JS -->
+     
+    <script src="<?= BASE_URL_HTML ?>/system/user/user.js"></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</body>
+
 </html>
