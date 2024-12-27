@@ -10,12 +10,11 @@ checkUserSession($db);
 if (isset($_POST['flagUser']) && $_POST['flagUser'] === 'add') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $employeeId = $_POST['employeeId'];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO user (username, password, employeeId) VALUES (?, ?, ?)";
+    $query = "INSERT INTO user (username, password) VALUES (?, ?, ?)";
 
-    $result = query($query, [$username, $hashedPassword, $employeeId]);
+    $result = query($query, [$username, $hashedPassword]);
 
     if ($result > 0) {
         echo json_encode([

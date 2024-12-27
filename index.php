@@ -81,13 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="row">
                                        <div class="col-lg-12">
                                           <div class="floating-label form-group">
-                                             <input class="floating-input form-control" type="text" placeholder=" " name="username" id="username">
+                                             <input class="floating-input form-control" type="text" placeholder=" " name="username" id="username" autocomplete="off">
                                              <label>Username</label>
                                           </div>
                                        </div>
                                        <div class="col-lg-12">
                                           <div class="floating-label form-group">
-                                             <input class="floating-input form-control" type="password" placeholder=" " name="password" id="password">
+                                             <input class="floating-input form-control" type="password" placeholder=" " name="password" id="password" autocomplete="off">
                                              <label>Password</label>
                                           </div>
                                        </div>

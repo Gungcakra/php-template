@@ -6,6 +6,10 @@ checkUserSession($db);
 $idUser = $_GET['data'] ?? '';
 if ($idUser) {
     $data = query("SELECT * FROM user WHERE userId = ?", [$idUser])[0];
+    $flagUser = 'update';
+
+}else{
+    $flagUser = 'add';
 }
 ?>
 
@@ -48,7 +52,7 @@ if ($idUser) {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 bg-white p-2">
-                        <form action="">
+                        <form id="formUser">
                             <div class="form-row">
                                 <div class="col-md-6 d-flex flex-column">
                                     <label for="username">Username</label>
@@ -58,6 +62,7 @@ if ($idUser) {
                                     <label for="username">Password</label>
                                     <input type="text" class="form-control" id="password" name="password" autocomplete="off" placeholder="Password">
                                 </div>
+                                <button class="btn btn-<?= $flagUser === 'add' ? 'update' : 'info' ?> btn-primary m-1 mt-3" onclick="prosesUser()"><i class="ri-save-3-line"></i>Simpan</button>
                             </div>
                         </form>
                     </div>

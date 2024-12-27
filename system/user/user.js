@@ -29,31 +29,30 @@ function daftarUser() {
 }
 
 function prosesUser() {
-  const formUser = document.getElementById("formUser");
+  const formUser = $("#formUser");
   const dataForm = new FormData(formUser);
 
-  $("#userModal").modal("hide");
-
-  $("#userModal").on("hidden.bs.modal", function () {
-    $.ajax({
-      url: "prosesUser.php",
-      type: "post",
-      enctype: "multipart/form-data",
-      processData: false,
-      contentType: false,
-      data: dataForm,
-      dataType: "json",
-      success: function (data) {
-        console.log(data);
-        const { status, pesan } = data;
+  $.ajax({
+    url: "prosesUser.php",
+    type: "post",
+    enctype: "multipart/form-data",
+    processData: false,
+    contentType: false,
+    data: dataForm,
+    dataType: "json",
+    success: function (data) {
+      const { status, pesan } = data;
+      if(status){
+        window.location.href = "../";
         notifikasi(status, pesan);
-        daftarUser();
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        console.error("Error:", textStatus, errorThrown);
-      },
-    });
+      }
+
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error:", textStatus, errorThrown);
+    },
   });
+  
 }
 
 function deleteUser(id) {
