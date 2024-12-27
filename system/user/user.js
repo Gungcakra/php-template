@@ -28,32 +28,6 @@ function daftarUser() {
   });
 }
 
-function prosesUser() {
-  const formUser = $("#formUser");
-  const dataForm = new FormData(formUser);
-
-  $.ajax({
-    url: "prosesUser.php",
-    type: "post",
-    enctype: "multipart/form-data",
-    processData: false,
-    contentType: false,
-    data: dataForm,
-    dataType: "json",
-    success: function (data) {
-      const { status, pesan } = data;
-      if(status){
-        window.location.href = "../";
-        notifikasi(status, pesan);
-      }
-
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.error("Error:", textStatus, errorThrown);
-    },
-  });
-  
-}
 
 function deleteUser(id) {
   Swal.fire({
@@ -106,6 +80,35 @@ function loadPage(pageNumber) {
     },
   });
 }
+
+function prosesUser() {
+  const formUser = $("#formUserInput")[0];
+  const dataForm = new FormData(formUser);
+
+  $.ajax({
+    url: "../prosesUser.php",
+    type: "post",
+    enctype: "multipart/form-data",
+    processData: false,
+    contentType: false,
+    data: dataForm,
+    dataType: "json",
+    success: function (data) {
+      const { status, pesan } = data;
+      notifikasi(status, pesan);
+      if (status) {
+        setTimeout(function() {
+          window.location.href = "../";
+        }, 500); // Delay the redirect to allow the notification to show
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error:", textStatus, errorThrown);
+    },
+  });
+  
+}
+
 
 function cariDaftarUser() {
   const searchQuery = $("#searchQuery").val();

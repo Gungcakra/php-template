@@ -65,7 +65,7 @@ $user = query($query, $params);
                         <!-- <a class="dropdown-item" href="#" data-toggle="tooltip" data-placement="top" title="Add">
                             <i class="ri-user-add-line mr-0"></i> Add
                         </a> -->
-                        <a class="dropdown-item" href="./formUser.php?data=<?= $row['userId'] ?>" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <a class="dropdown-item" href="form/?data=<?= $row['userId'] ?>" data-toggle="tooltip" data-placement="top" title="Edit">
                             <i class="ri-pencil-line mr-0"></i> Edit
                         </a>
                         <a class="dropdown-item" href="#" data-toggle="tooltip" data-placement="top" title="Delete" onclick="deleteUser(<?= $row['userId'] ?>)">

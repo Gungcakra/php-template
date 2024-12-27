@@ -1,14 +1,13 @@
 <?php
 session_start();
-require_once "../../library/konfigurasi.php";
+require_once "../../../library/konfigurasi.php";
 checkUserSession($db);
 
 $idUser = $_GET['data'] ?? '';
 if ($idUser) {
     $data = query("SELECT * FROM user WHERE userId = ?", [$idUser])[0];
     $flagUser = 'update';
-
-}else{
+} else {
     $flagUser = 'add';
 }
 ?>
@@ -31,6 +30,9 @@ if ($idUser) {
     <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css">
     <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css">
     <link rel="stylesheet" href="<?= BASE_URL_HTML ?>/assets/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css">
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 </head>
 
 <body class=" color-light ">
@@ -52,19 +54,22 @@ if ($idUser) {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 bg-white p-2">
-                        <form id="formUser">
+                        <form id="formUserInput">
                             <div class="form-row">
                                 <div class="col-md-6 d-flex flex-column">
                                     <label for="username">Username</label>
+                                    <input type="hidden" name="flagUser" id="flagUser" value="<?= $flagUser ?>">
+                                    <input type="hidden" name="idUser" id="idUser" value="<?= $idUser ?>">
                                     <input type="text" class="form-control" id="username" name="username" value="<?= $data['username'] ?? '' ?>" autocomplete="off" placeholder="Username">
                                 </div>
                                 <div class="col-md-6 d-flex flex-column">
                                     <label for="username">Password</label>
                                     <input type="text" class="form-control" id="password" name="password" autocomplete="off" placeholder="Password">
                                 </div>
-                                <button class="btn btn-<?= $flagUser === 'add' ? 'update' : 'info' ?> btn-primary m-1 mt-3" onclick="prosesUser()"><i class="ri-save-3-line"></i>Simpan</button>
                             </div>
                         </form>
+
+                        <button type="button" class="btn btn-<?= $flagUser === 'add' ? 'update' : 'info' ?> btn-primary m-1 mt-3" onclick="prosesUser()"><i class="ri-save-3-line"></i>Simpan</button>
                     </div>
                 </div>
             </div>
@@ -95,6 +100,12 @@ if ($idUser) {
     <script src="<?= BASE_URL_HTML ?>/assets/js/app.js"></script>
 
     <script src="<?= BASE_URL_HTML ?>/assets/vendor/moment.min.js"></script>
+
+    <!-- MAIN JS -->
+    <script src="<?= BASE_URL_HTML ?>/system/user/user.js"></script>
+
+        <!-- Toastr JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
 
 </html>

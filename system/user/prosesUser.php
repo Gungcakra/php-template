@@ -12,7 +12,7 @@ if (isset($_POST['flagUser']) && $_POST['flagUser'] === 'add') {
     $password = $_POST['password'];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO user (username, password) VALUES (?, ?, ?)";
+    $query = "INSERT INTO user (username, password) VALUES (?, ?)";
 
     $result = query($query, [$username, $hashedPassword]);
 
@@ -45,25 +45,22 @@ if (isset($_POST['flagUser']) && $_POST['flagUser'] === 'add') {
         ]);
     }
 } else if ($_POST['flagUser'] && $_POST['flagUser'] === 'update') {
-    $userId = $_POST['userId'];
+    $userId = $_POST['idUser'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $employeeId = $_POST['employeeId'];
 
     if ($password) {
         $query = "UPDATE user 
               SET username = ?, 
-                  password = ?, 
-                  employeeId = ?
+                  password = ?
               WHERE userId = ?";
-        $result = query($query, [$username, $hashedPassword, $employeeId, $userId]);
+        $result = query($query, [$username, $hashedPassword, $userId]);
     } else {
         $query = "UPDATE user 
-              SET username = ?, 
-                  employeeId = ?
+              SET username = ?
               WHERE userId = ?";
-        $result = query($query, [$username, $employeeId, $userId]);
+        $result = query($query, [$username, $userId]);
     }
 
 
