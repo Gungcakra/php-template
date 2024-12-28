@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                           </div> -->
                                        </div>
                                        <div class="col-lg-6">
-                                          <a href="auth-recoverpw.html" class="text-white float-right">Forgot Password?</a>
+                                          <!-- <a href="auth-recoverpw.html" class="text-white float-right">Forgot Password?</a> -->
                                        </div>
                                     </div>
                                     <button type="submit" class="btn btn-white">Sign In</button>

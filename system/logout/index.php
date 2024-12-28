@@ -2,7 +2,6 @@
 session_start();
 require_once "../../library/konfigurasi.php";
 checkUserSession($db);  
-session_start();
 session_unset();
 session_destroy();
 
