@@ -1,1 +1,2 @@
-./library/konfigurasi.php
+# Ignore konfigurasi.php in the library directory
+/library/konfigurasi.php
