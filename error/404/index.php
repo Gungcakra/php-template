@@ -38,7 +38,7 @@ require_once "../../library/konfigurasi.php";
                      <img src="<?= BASE_URL_HTML ?>/assets/images/error/404.png" class="img-fluid iq-error-img" alt="">
                      <h2 class="mb-0 mt-4">Oops! This Page is Not Found.</h2>
                      <p>The requested page dose not exist.</p>
-                     <a class="btn btn-primary d-inline-flex align-items-center mt-3" href="index.html"><i class="ri-home-4-line"></i>Back to Home</a>
+                     <a class="btn btn-primary d-inline-flex align-items-center mt-3" href="javascript:history.back()"><i class="ri-home-4-line"></i>Back</a>
                </div>
             </div>
          </div>
