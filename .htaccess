@@ -1,0 +1,5 @@
+ErrorDocument 404 https://php-template.cakra-portfolio.my.id/error/404/
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^/404/$
+RewriteRule ^(.*)$ pages/404.php [L]
