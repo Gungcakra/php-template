@@ -2,8 +2,8 @@
 // Database connection
 if ($_SERVER['HTTP_HOST'] === 'localhost') {
     $db = mysqli_connect("localhost", "root", "", database: "templatedb");
-} else if ($_SERVER['HTTP_HOST'] === 'sion.cakra-portfolio.my.id') {
-    $db = mysqli_connect("localhost", "u686303384_sion", "#sion12", "u686303384_siondb");
+} else if ($_SERVER['HTTP_HOST'] === 'php-template.cakra-portfolio.my.id') {
+    $db = mysqli_connect("localhost", "u686303384_templatedb", "Template12#", "u686303384__templatedb");
 }
 
 // Set timezone and locale
