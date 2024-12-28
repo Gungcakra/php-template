@@ -62,13 +62,23 @@ checkUserSession($db);
                                     <div class="row justify-content-between">
                                         <div class="col-sm-6 col-md-6">
                                             <div id="user_list_datatable_info" class="dataTables_filter">
-                                                <form class="mr-3 position-relative">
-                                                    <div class="form-group mb-0">
+
+                                                <form class="mr-3 position-relative d-flex ">
+                                                    <div class="col-md-6 m-0 p-0">
                                                         <input type="text" class="form-control" id="searchQuery" placeholder="Search"
-                                                        name="searchQuery"
-                                                        autocomplete="off"
-                                                        onkeyup="cariDaftarUser()"
+                                                            name="searchQuery"
+                                                            autocomplete="off"
+                                                            onkeyup="cariDaftarUser()"
                                                             aria-controls="user-list-table">
+                                                    </div>
+                                                    <div class="col-md-2 m-0 p-0 ml-2">
+                                                            <select class="custom-select" id="limit" name="limit" onclick="cariDaftarUser()">
+                                                                <option value="10">10</option>
+                                                                <option value="20">20</option>
+                                                                <option value="50">50</option>
+                                                                <option value="100">100</option>
+                                                            </select>
+                                                        
                                                     </div>
                                                 </form>
                                             </div>
@@ -82,16 +92,16 @@ checkUserSession($db);
                                                     Excel
                                                 </button> -->
                                                 <a class="btn btn-primary mr-1" href="./form/">+ User</a>
-                                                    
+
                                             </div>
                                         </div>
                                     </div>
                                     <div id="daftarUser" class="w-100">
-                                        
+
                                     </div>
                                 </div>
                                 <div class="row justify-content-between mt-3" id="pagination">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -104,32 +114,32 @@ checkUserSession($db);
 
     <!-- Modal list start -->
 
-    
+
     <?php require_once "{$constant('BASE_URL_PHP')}/system/footer.php" ?>
 
     <!-- JQUERY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Backend Bundle JavaScript -->
     <script src="<?= BASE_URL_HTML ?>/assets/js/backend-bundle.min.js"></script>
-    
-    
+
+
     <!-- Table Treeview JavaScript -->
     <script src="<?= BASE_URL_HTML ?>/assets/js/table-treeview.js"></script>
-    
+
     <!-- Chart Custom JavaScript -->
     <script src="<?= BASE_URL_HTML ?>/assets/js/customizer.js"></script>
-    
+
     <!-- Chart Custom JavaScript -->
     <script async src="<?= BASE_URL_HTML ?>/assets/js/chart-custom.js"></script>
     <!-- Chart Custom JavaScript -->
     <script async src="<?= BASE_URL_HTML ?>/assets/js/slider.js"></script>
-    
+
     <!-- app JavaScript -->
     <script src="<?= BASE_URL_HTML ?>/assets/js/app.js"></script>
-    
+
     <script src="<?= BASE_URL_HTML ?>/assets/vendor/moment.min.js"></script>
     <!-- MAIN JS -->
-     
+
     <script src="<?= BASE_URL_HTML ?>/system/user/user.js"></script>
 
     <!-- Toastr JS -->

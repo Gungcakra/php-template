@@ -8,7 +8,6 @@ if ($_SERVER['HTTP_HOST'] === 'localhost') {
 
 // Set timezone and locale
 date_default_timezone_set("Asia/Jakarta");
-setlocale(LC_TIME, 'id_ID.UTF-8');
 
 // Define constants
 define('PAGE_TITLE', 'Template');

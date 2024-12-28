@@ -25,12 +25,12 @@ $userData = query("SELECT * FROM user WHERE userId = ?", [$userId])[0];
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-list align-items-center">
                         <li>
-                            <div class="iq-search-bar device-search">
+                            <!-- <div class="iq-search-bar device-search">
                                 <form action="#" class="searchbox">
                                     <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                                     <input type="text" class="text search-input" placeholder="Search here<?= BASE_URL_HTML ?>.">
                                 </form>
-                            </div>
+                            </div> -->
                         </li>
                         <li class="nav-item nav-icon search-content">
                             <a href="#" class="search-toggle rounded" id="dropdownSearch" data-toggle="dropdown"
@@ -208,7 +208,7 @@ $userData = query("SELECT * FROM user WHERE userId = ?", [$userId])[0];
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right border-none" aria-labelledby="dropdownMenuButton">
-                                <li class="dropdown-item d-flex svg-icon">
+                                <!-- <li class="dropdown-item d-flex svg-icon">
                                     <svg class="svg-icon mr-0 text-primary" id="h-01-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -232,12 +232,13 @@ $userData = query("SELECT * FROM user WHERE userId = ?", [$userId])[0];
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                     </svg>
                                     <a href="<?= BASE_URL_HTML ?>/app/user-privacy-setting.html">Privacy Settings</a>
-                                </li>
+                                </li> -->
                                 <li class="dropdown-item  d-flex svg-icon border-top">
                                     <svg class="svg-icon mr-0 text-primary" id="h-05-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                     </svg>
-                                    <a href="<?= BASE_URL_HTML ?>/backend/auth-sign-in.html">Logout</a>
+                                    <a href="<?= BASE_URL_HTML ?>/system/logout/">Logout</a>
+
                                 </li>
                             </ul>
                         </li>

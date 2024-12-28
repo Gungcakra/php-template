@@ -17,17 +17,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
 
-    // Validasi input
+    
     if (empty($username) || empty($password)) {
         $error = "Username dan password tidak boleh kosong.";
     } else {
-        // Query untuk mendapatkan data user berdasarkan username
+      
         $user = query("SELECT * FROM user WHERE username = ?", [$username]);
 
         if ($user && password_verify($password, $user[0]['password'])) {
             $_SESSION['userId'] = $user[0]['userId'];
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-            $_SESSION['login_attempts'] = 0; // Reset percobaan login
+            $_SESSION['login_attempts'] = 0; 
             header('Location: '. BASE_URL_HTML .'/system/');
             exit();
         } else {
