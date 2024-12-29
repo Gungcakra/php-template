@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../../../library/konfigurasi.php";
+require_once "../../../../library/konfigurasi.php";
 checkUserSession($db);
 
 $idUser = $_GET['data'] ?? '';
@@ -102,7 +102,7 @@ if ($idUser) {
     <script src="<?= BASE_URL_HTML ?>/assets/vendor/moment.min.js"></script>
 
     <!-- MAIN JS -->
-    <script src="<?= BASE_URL_HTML ?>/system/user/user.js"></script>
+    <script src="<?= BASE_URL_HTML ?>/system/data/user/user.js"></script>
 
         <!-- Toastr JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
